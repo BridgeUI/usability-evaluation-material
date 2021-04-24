@@ -140,7 +140,7 @@ struct NumberView: View {
     //ボタンを押さなければいけない回数は要検討．気づかれやすいため，0-3の方がいいかもしれない
     @State var countTap = 0
     
-    @Binding var isHard = false
+    @Binding var cV = ContetView()
     
     var numberString: String{
         return String(Int(number))
@@ -150,7 +150,7 @@ struct NumberView: View {
         
         Button(action: {
             
-            if (isHard == true) {
+            if (cV.isHard == true) {
                 if (countTap == numberTap) {
                     self.state.appendNumber(self.number)
                     countTap = 0
