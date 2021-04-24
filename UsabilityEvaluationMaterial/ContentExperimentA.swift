@@ -46,6 +46,7 @@ struct ContentExperimentA: View {
     
     @State var correct:Int = 0
     
+    
     func check() {
         if state.currentNumber == task.taskNumber{
             correct += 1
@@ -139,7 +140,7 @@ struct NumberView: View {
     //ボタンを押さなければいけない回数は要検討．気づかれやすいため，0-3の方がいいかもしれない
     @State var countTap = 0
     
-    @Binding var isHard: Bool
+    @Binding var isHard = false
     
     var numberString: String{
         return String(Int(number))
@@ -149,7 +150,7 @@ struct NumberView: View {
         
         Button(action: {
             
-            if(isHard == true){
+            if (isHard == true) {
                 if (countTap == numberTap) {
                     self.state.appendNumber(self.number)
                     countTap = 0
@@ -172,6 +173,8 @@ struct NumberView: View {
                 .shadow(radius: 3, x:3, y:3)
                 .padding(.all,10)
         }
+        
+        
     }
 }
 

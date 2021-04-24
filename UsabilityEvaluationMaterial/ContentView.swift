@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isHard = false
+    
+   @State var eA = NumberView()
+    
     var body: some View {
         NavigationView{
             VStack(spacing: 16.0) {
@@ -16,11 +18,11 @@ struct ContentView: View {
                 Spacer()
                 ExperimentNavButton(title: "実験 A-1", destination: ExperimentA())
                     .onTapGesture{
-                        $isHard = false
+                        eA.isHard = false
                     }
                 ExperimentNavButton(title: "実験 A-2", destination: ExperimentA())
                     .onTapGesture{
-                        $isHard = true
+                        eA.isHard = true
                     }
                 ExperimentNavButton(title: "実験 B-1", destination: ExperimentB())
                 ExperimentNavButton(title: "実験 B-2", destination: ExperimentB())
