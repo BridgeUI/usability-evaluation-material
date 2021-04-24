@@ -15,7 +15,7 @@ struct ContentView: View {
                 Text("実験マテリアル").bold()
                 Spacer()
                 ExperimentNavButton(title: "実験 A-1", destination: Experiment1())
-                ExperimentNavButton(title: "実験 A-2", destination: Experiment1())
+                ExperimentNavButton(title: "実験 A-2", destination: Experiment2())
                 ExperimentNavButton(title: "実験 B-1", destination: Experiment1())
                 ExperimentNavButton(title: "実験 B-2", destination: Experiment1())
                 ExperimentNavButton(title: "実験 C-1", destination: Experiment1())

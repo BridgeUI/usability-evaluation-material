@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Experiment1: View {
+struct Experiment2: View {
     
     var body: some View {
         
@@ -20,7 +20,7 @@ struct Experiment1: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: ContentExperiment1()) {
+                NavigationLink(destination: ContentExperiment2()) {
                     Text("始める")
                         .frame(maxWidth:.infinity)
                         .frame(height:50)
@@ -36,8 +36,8 @@ struct Experiment1: View {
     }
 }
 
-struct Experiment1_Previews: PreviewProvider {
+struct Experiment2_Previews: PreviewProvider {
     static var previews: some View {
-        Experiment1()
+        Experiment2()
     }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12962018263404A600345AD2 /* ContentExperiment1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12962017263404A600345AD2 /* ContentExperiment1.swift */; };
+		1296201B263404CD00345AD2 /* Experiment2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1296201A263404CD00345AD2 /* Experiment2.swift */; };
+		1296201E263404FF00345AD2 /* ContentExperiment2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1296201D263404FF00345AD2 /* ContentExperiment2.swift */; };
 		BA5EEA6E2630505E00FA7F20 /* Experiment1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5EEA6D2630505E00FA7F20 /* Experiment1.swift */; };
 		BAA058DC262FEA4F0045A1CA /* UsabilityEvaluationMaterialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA058DB262FEA4F0045A1CA /* UsabilityEvaluationMaterialApp.swift */; };
 		BAA058DE262FEA4F0045A1CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA058DD262FEA4F0045A1CA /* ContentView.swift */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12962017263404A600345AD2 /* ContentExperiment1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentExperiment1.swift; sourceTree = "<group>"; };
+		1296201A263404CD00345AD2 /* Experiment2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Experiment2.swift; sourceTree = "<group>"; };
+		1296201D263404FF00345AD2 /* ContentExperiment2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentExperiment2.swift; sourceTree = "<group>"; };
 		BA5EEA6D2630505E00FA7F20 /* Experiment1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Experiment1.swift; sourceTree = "<group>"; };
 		BAA058D8262FEA4F0045A1CA /* UsabilityEvaluationMaterial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UsabilityEvaluationMaterial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAA058DB262FEA4F0045A1CA /* UsabilityEvaluationMaterialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabilityEvaluationMaterialApp.swift; sourceTree = "<group>"; };
@@ -57,6 +63,9 @@
 				BAA058DB262FEA4F0045A1CA /* UsabilityEvaluationMaterialApp.swift */,
 				BAA058DD262FEA4F0045A1CA /* ContentView.swift */,
 				BA5EEA6D2630505E00FA7F20 /* Experiment1.swift */,
+				12962017263404A600345AD2 /* ContentExperiment1.swift */,
+				1296201A263404CD00345AD2 /* Experiment2.swift */,
+				1296201D263404FF00345AD2 /* ContentExperiment2.swift */,
 				BAA058DF262FEA500045A1CA /* Assets.xcassets */,
 				BAA058E4262FEA500045A1CA /* Info.plist */,
 				BAA058E1262FEA500045A1CA /* Preview Content */,
@@ -141,9 +150,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1296201B263404CD00345AD2 /* Experiment2.swift in Sources */,
+				12962018263404A600345AD2 /* ContentExperiment1.swift in Sources */,
 				BAA058DE262FEA4F0045A1CA /* ContentView.swift in Sources */,
 				BAA058DC262FEA4F0045A1CA /* UsabilityEvaluationMaterialApp.swift in Sources */,
 				BA5EEA6E2630505E00FA7F20 /* Experiment1.swift in Sources */,
+				1296201E263404FF00345AD2 /* ContentExperiment2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
