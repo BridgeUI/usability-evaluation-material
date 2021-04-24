@@ -1,5 +1,5 @@
 //
-//  ContentExperiment1.swift
+//  ContentExperimentA.swift
 //  UsabilityEvaluationMaterial
 //
 //  Created by 村上聡 on 2021/04/24.
@@ -8,7 +8,7 @@
 import SwiftUI
 import UIKit
 
-struct TaskState2 {
+struct TaskState {
     var taskNumber:Double = 0
     init() {
         for i in [1,10,100,1000,10000,100000] {
@@ -17,7 +17,7 @@ struct TaskState2 {
     }
 }
 
-struct InputState2 {
+struct InputState {
     
     var currentNumber: Double = 0
     mutating func  appendNumber(_ number: Double) {
@@ -31,7 +31,7 @@ struct InputState2 {
     }
 }
 
-struct ContentExperiment2: View {
+struct ContentExperimentA: View {
     
     
     @State var state = InputState()
@@ -83,19 +83,19 @@ struct ContentExperiment2: View {
             Spacer()
             
             HStack{
-                NumberView2(number: 1, state: $state)
-                NumberView2(number: 2, state: $state)
-                NumberView2(number: 3, state: $state)
+                NumberView(number: 1, state: $state)
+                NumberView(number: 2, state: $state)
+                NumberView(number: 3, state: $state)
             }
             HStack{
-                NumberView2(number: 4, state: $state)
-                NumberView2(number: 5, state: $state)
-                NumberView2(number: 6, state: $state)
+                NumberView(number: 4, state: $state)
+                NumberView(number: 5, state: $state)
+                NumberView(number: 6, state: $state)
             }
             HStack{
-                NumberView2(number: 7, state: $state)
-                NumberView2(number: 8, state: $state)
-                NumberView2(number: 9, state: $state)
+                NumberView(number: 7, state: $state)
+                NumberView(number: 8, state: $state)
+                NumberView(number: 9, state: $state)
             }
             
             Button(action: {
@@ -131,12 +131,15 @@ struct ContentExperiment2: View {
 }
 
 
-struct NumberView2: View {
+struct NumberView: View {
     let number:Double
     @Binding var state: InputState
+    
     @State var numberTap = Int.random(in: 1..<3)
     //ボタンを押さなければいけない回数は要検討．気づかれやすいため，0-3の方がいいかもしれない
     @State var countTap = 0
+    
+    @Binding var isHard: Bool
     
     var numberString: String{
         return String(Int(number))
@@ -145,13 +148,19 @@ struct NumberView2: View {
     var body: some View{
         
         Button(action: {
-            if (countTap == numberTap) {
-                self.state.appendNumber(self.number)
-                countTap = 0
-                numberTap = Int.random(in: 1..<3)
+            
+            if(isHard == true){
+                if (countTap == numberTap) {
+                    self.state.appendNumber(self.number)
+                    countTap = 0
+                    numberTap = Int.random(in: 1..<3)
+                }else{
+                    self.countTap += 1
+                }
             }else{
-                self.countTap += 1
+                self.state.appendNumber(self.number)
             }
+            
         }) {
             Text(numberString)
                 .font(.largeTitle)
@@ -168,8 +177,8 @@ struct NumberView2: View {
 
 
 
-struct ContentExperiment2_Previews: PreviewProvider {
+struct ContentExperimentA_Previews: PreviewProvider {
     static var previews: some View {
-        ContentExperiment2()
+        ContentExperimentA()
     }
 }
