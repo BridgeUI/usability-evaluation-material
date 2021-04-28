@@ -32,7 +32,7 @@ struct InputState {
 }
 
 struct ContentExperimentA: View {
-    
+    var isHard: Bool
     
     @State var state = InputState()
     var displayedString: String{
@@ -84,19 +84,19 @@ struct ContentExperimentA: View {
             Spacer()
             
             HStack{
-                NumberView(number: 1, state: $state)
-                NumberView(number: 2, state: $state)
-                NumberView(number: 3, state: $state)
+                NumberView(number: 1, state: $state, isHard: isHard)
+                NumberView(number: 2, state: $state, isHard: isHard)
+                NumberView(number: 3, state: $state, isHard: isHard)
             }
             HStack{
-                NumberView(number: 4, state: $state)
-                NumberView(number: 5, state: $state)
-                NumberView(number: 6, state: $state)
+                NumberView(number: 4, state: $state, isHard: isHard)
+                NumberView(number: 5, state: $state, isHard: isHard)
+                NumberView(number: 6, state: $state, isHard: isHard)
             }
             HStack{
-                NumberView(number: 7, state: $state)
-                NumberView(number: 8, state: $state)
-                NumberView(number: 9, state: $state)
+                NumberView(number: 7, state: $state, isHard: isHard)
+                NumberView(number: 8, state: $state, isHard: isHard)
+                NumberView(number: 9, state: $state, isHard: isHard)
             }
             
             Button(action: {
@@ -140,7 +140,7 @@ struct NumberView: View {
     //ボタンを押さなければいけない回数は要検討．気づかれやすいため，0-3の方がいいかもしれない
     @State var countTap = 0
     
-    @Binding var cV = ContetView()
+    var isHard: Bool
     
     var numberString: String{
         return String(Int(number))
@@ -150,7 +150,7 @@ struct NumberView: View {
         
         Button(action: {
             
-            if (cV.isHard == true) {
+            if (isHard) {
                 if (countTap == numberTap) {
                     self.state.appendNumber(self.number)
                     countTap = 0
@@ -182,6 +182,6 @@ struct NumberView: View {
 
 struct ContentExperimentA_Previews: PreviewProvider {
     static var previews: some View {
-        ContentExperimentA()
+        ContentExperimentA(isHard: true)
     }
 }

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ExperimentA: View {
     
+    var isHard: Bool
+    
     var body: some View {
         
         VStack{
@@ -19,7 +21,7 @@ struct ExperimentA: View {
             
             Spacer()
             
-            NavigationLink(destination: ContentExperimentA()) {
+            NavigationLink(destination: ContentExperimentA(isHard: isHard)) {
                 Text("始める")
                     .frame(maxWidth:.infinity)
                     .frame(height:50)
@@ -37,6 +39,6 @@ struct ExperimentA: View {
 
 struct ExperimentA_Previews: PreviewProvider {
     static var previews: some View {
-        ExperimentA()
+        ExperimentA(isHard: true)
     }
 }
