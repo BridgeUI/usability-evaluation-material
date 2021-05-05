@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1200D50D2642C0F10002A536 /* ContentExperimentB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1200D50C2642C0F10002A536 /* ContentExperimentB.swift */; };
 		1296201E263404FF00345AD2 /* ContentExperimentA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1296201D263404FF00345AD2 /* ContentExperimentA.swift */; };
 		129620232634152400345AD2 /* ExperimentB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129620222634152400345AD2 /* ExperimentB.swift */; };
 		129620262634155500345AD2 /* ExperimentC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129620252634155500345AD2 /* ExperimentC.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1200D50C2642C0F10002A536 /* ContentExperimentB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentExperimentB.swift; sourceTree = "<group>"; };
 		1296201D263404FF00345AD2 /* ContentExperimentA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentExperimentA.swift; sourceTree = "<group>"; };
 		129620222634152400345AD2 /* ExperimentB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentB.swift; sourceTree = "<group>"; };
 		129620252634155500345AD2 /* ExperimentC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentC.swift; sourceTree = "<group>"; };
@@ -47,6 +49,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1200D5092642861A0002A536 /* ExperimentA */ = {
+			isa = PBXGroup;
+			children = (
+				BA5EEA6D2630505E00FA7F20 /* ExperimentA.swift */,
+				1296201D263404FF00345AD2 /* ContentExperimentA.swift */,
+			);
+			path = ExperimentA;
+			sourceTree = "<group>";
+		};
+		1200D50B264286590002A536 /* ExperimentB */ = {
+			isa = PBXGroup;
+			children = (
+				129620222634152400345AD2 /* ExperimentB.swift */,
+				1200D50C2642C0F10002A536 /* ContentExperimentB.swift */,
+			);
+			path = ExperimentB;
+			sourceTree = "<group>";
+		};
 		BAA058CF262FEA4F0045A1CA = {
 			isa = PBXGroup;
 			children = (
@@ -68,9 +88,8 @@
 			children = (
 				BAA058DB262FEA4F0045A1CA /* UsabilityEvaluationMaterialApp.swift */,
 				BAA058DD262FEA4F0045A1CA /* ContentView.swift */,
-				BA5EEA6D2630505E00FA7F20 /* ExperimentA.swift */,
-				1296201D263404FF00345AD2 /* ContentExperimentA.swift */,
-				129620222634152400345AD2 /* ExperimentB.swift */,
+				1200D5092642861A0002A536 /* ExperimentA */,
+				1200D50B264286590002A536 /* ExperimentB */,
 				BADE63F12639946600B6EF4B /* ExperimentC */,
 				129620292634156300345AD2 /* ExperimentD.swift */,
 				BAA058DF262FEA500045A1CA /* Assets.xcassets */,
@@ -171,6 +190,7 @@
 				1296202A2634156300345AD2 /* ExperimentD.swift in Sources */,
 				BAA058DE262FEA4F0045A1CA /* ContentView.swift in Sources */,
 				BADE63F02639945F00B6EF4B /* ContentExperimentC.swift in Sources */,
+				1200D50D2642C0F10002A536 /* ContentExperimentB.swift in Sources */,
 				BAA058DC262FEA4F0045A1CA /* UsabilityEvaluationMaterialApp.swift in Sources */,
 				BA5EEA6E2630505E00FA7F20 /* ExperimentA.swift in Sources */,
 				1296201E263404FF00345AD2 /* ContentExperimentA.swift in Sources */,

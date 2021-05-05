@@ -15,9 +15,10 @@ struct ExperimentA: View {
         
         VStack{
             Spacer()
-            Text("これから画面に表示される数字を打ち込んでください。制限時間は1分です。")
+            Text("この実験は数字に対する能力を測るものです．表示される数字を小さい順に正確に並べ替えてください．")
                 .frame(width:280)
                 .padding()
+            //ここの文面は上田さんに要確認
             
             Spacer()
             

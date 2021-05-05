@@ -10,10 +10,21 @@ import UIKit
 
 struct TaskState {
     var taskNumber:Double = 0
+    var correctNumber:Double = 0
+    var array:[Int] = [1,2,3,4,5,6,7,8,9]
+    var correctarray = [] as [Int]
     init() {
-        for i in [1,10,100,1000,10000,100000] {
-            taskNumber = taskNumber + Double(Int.random(in: 1..<9) * i)
+        for i in 0...5 {
+            let n = array.randomElement()
+            correctarray.append(n!)
+            taskNumber += Double(n!) * pow(10, Double(i))
         }
+        correctarray.sort{$0<$1}
+        for i in 0...5 {
+            let nc = correctarray[i]
+            correctNumber += Double(nc) * pow(10, Double(i))
+        }
+        //correctarrayを並び替えてcorrectNumberにぶち込む
     }
 }
 
@@ -48,7 +59,7 @@ struct ContentExperimentA: View {
     
     
     func check() {
-        if state.currentNumber == task.taskNumber{
+        if state.currentNumber == task.correctNumber{
             correct += 1
             state.currentNumber = 0
             task = TaskState()
@@ -62,7 +73,7 @@ struct ContentExperimentA: View {
         VStack{
             HStack{
                 Spacer()
-                Text("5問中\(correct)問正解")
+                Text("\(correct)問正解")
                     .font(.title)
                     .padding(.horizontal)
             }
@@ -136,9 +147,9 @@ struct NumberView: View {
     let number:Double
     @Binding var state: InputState
     
-    @State var numberTap = Int.random(in: 1..<3)
-    //ボタンを押さなければいけない回数は要検討．気づかれやすいため，0-3の方がいいかもしれない
-    @State var countTap = 0
+    //    @State var numberTap = Int.random(in: 1..<3)
+    //    //ボタンを押さなければいけない回数は要検討．気づかれやすいため，0-3の方がいいかもしれない
+    //    @State var countTap = 0
     
     var isHard: Bool
     
@@ -151,12 +162,17 @@ struct NumberView: View {
         Button(action: {
             
             if (isHard) {
-                if (countTap == numberTap) {
+                //                if (countTap == numberTap) {
+                //                    self.state.appendNumber(self.number)
+                //                    countTap = 0
+                //                    numberTap = Int.random(in: 1..<3)
+                //                }else{
+                //                    self.countTap += 1
+                //                }
+                if (1 == Int.random(in: 1..<3))  {
                     self.state.appendNumber(self.number)
-                    countTap = 0
-                    numberTap = Int.random(in: 1..<3)
                 }else{
-                    self.countTap += 1
+                    
                 }
             }else{
                 self.state.appendNumber(self.number)

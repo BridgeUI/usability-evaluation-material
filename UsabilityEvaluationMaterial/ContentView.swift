@@ -17,15 +17,9 @@ struct ContentView: View {
                 Text("実験マテリアル").bold()
                 Spacer()
                 ExperimentNavButton(title: "実験 A-1", destination: ExperimentA(isHard: true))
-                    .onTapGesture{
-                        isHard = false
-                    }
                 ExperimentNavButton(title: "実験 A-2", destination: ExperimentA(isHard: false))
-                    .onTapGesture{
-                        isHard = true
-                    }
-                ExperimentNavButton(title: "実験 B-1", destination: ExperimentB())
-                ExperimentNavButton(title: "実験 B-2", destination: ExperimentB())
+                ExperimentNavButton(title: "実験 B-1", destination: ExperimentB(isHard: true))
+                ExperimentNavButton(title: "実験 B-2", destination: ExperimentB(isHard: false))
                 ExperimentNavButton(title: "実験 C-1", destination: ExperimentC(isHard: true))
                 ExperimentNavButton(title: "実験 C-2", destination: ExperimentC(isHard: false))
                 ExperimentNavButton(title: "実験 D-1", destination: ExperimentD())
