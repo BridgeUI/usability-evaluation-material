@@ -42,7 +42,7 @@ struct InputState {
     }
 }
 
-struct ContentExperimentA: View {
+struct ExperimentA: View {
     var isHard: Bool
     
     @State var state = InputState()
@@ -71,16 +71,11 @@ struct ContentExperimentA: View {
     
     var body: some View {
         VStack{
-            HStack{
-                Spacer()
-                Text("\(correct)問正解")
-                    .font(.title)
-                    .padding(.horizontal)
-            }
+            Counter()
             
             Text(taskString)
                 .font(.largeTitle)
-                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                .fontWeight(.bold)
                 .padding(.top)
             
             Text(displayedString)
@@ -198,6 +193,6 @@ struct NumberView: View {
 
 struct ContentExperimentA_Previews: PreviewProvider {
     static var previews: some View {
-        ContentExperimentA(isHard: true)
+        ExperimentA(isHard: true)
     }
 }

@@ -11,19 +11,27 @@ struct ContentView: View {
     
     @State var isHard = false
     
+    let descriptions = [
+        "この実験は数字に対する能力を測るものです．表示される数字を小さい順に正確に並べ替えてください．",
+        "",
+        "",
+        ""
+    ]
+    
     var body: some View {
         NavigationView{
             VStack(spacing: 16.0) {
                 Text("実験マテリアル").bold()
                 Spacer()
-                ExperimentNavButton(title: "実験 A-1", destination: ExperimentA(isHard: true))
-                ExperimentNavButton(title: "実験 A-2", destination: ExperimentA(isHard: false))
-                ExperimentNavButton(title: "実験 B-1", destination: ExperimentB(isHard: true))
-                ExperimentNavButton(title: "実験 B-2", destination: ExperimentB(isHard: false))
-                ExperimentNavButton(title: "実験 C-1", destination: ExperimentC(isHard: true))
-                ExperimentNavButton(title: "実験 C-2", destination: ExperimentC(isHard: false))
-                ExperimentNavButton(title: "実験 D-1", destination: ExperimentD())
-                ExperimentNavButton(title: "実験 D-2", destination: ExperimentD())
+                ExperimentNavButton(label: "A", number: "1", text: descriptions[0], destination: ExperimentA(isHard: true))
+                ExperimentNavButton(label: "A", number: "2", text: descriptions[0], destination: ExperimentA(isHard: true))
+                ExperimentNavButton(label: "B", number: "1", text: descriptions[0], destination: ExperimentB(isHard: true))
+                ExperimentNavButton(label: "B", number: "2", text: descriptions[0], destination: ExperimentB(isHard: true))
+                ExperimentNavButton(label: "C", number: "1", text: descriptions[0], destination: ExperimentC(isHard: true))
+                ExperimentNavButton(label: "C", number: "2", text: descriptions[0], destination: ExperimentC(isHard: true))
+                ExperimentNavButton(label: "D", number: "1", text: descriptions[0], destination: ExperimentD())
+                ExperimentNavButton(label: "D", number: "2", text: descriptions[0], destination: ExperimentD())
+                
             }.padding(40)
         }
     }
@@ -36,12 +44,18 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct ExperimentNavButton<Destination>: View where Destination: View{
-    var title: String
+    var label: String
+    var number: String
+    var text: String
     var destination: Destination
+    private var title: String {
+        "実験 \(label)-\(number)"
+    }
     
     var body: some View {
         NavigationLink(
-            destination: destination,
+            destination:  DescriptionBeforeExperiment(text: text, content: destination).navigationBarTitle(title)
+                .navigationBarBackButtonHidden(true) ,
             label: {
                 Text(title).padding().background(Color.blue).foregroundColor(.white).cornerRadius(8)
             })

@@ -11,7 +11,10 @@ struct ExperimentC: View {
     var isHard: Bool
     
     var body: some View {
-        ContentExperimentC(isHard: isHard)
+        VStack {
+            Counter()
+            ContentExperimentC(isHard: isHard)
+        }
     }
 }
 

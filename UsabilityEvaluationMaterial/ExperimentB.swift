@@ -7,15 +7,19 @@
 
 import SwiftUI
 
-struct ContentExperimentB: View {
+struct ExperimentB: View {
     var isHard: Bool
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Counter()
+            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        }
+        
     }
 }
 
 struct ContentExperimentB_Previews: PreviewProvider {
     static var previews: some View {
-        ContentExperimentB(isHard: true)
+        ExperimentB(isHard: true)
     }
 }
