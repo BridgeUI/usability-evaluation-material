@@ -11,7 +11,7 @@ struct ExperimentC: View {
     var isHard: Bool
     
     var body: some View {
-        ContentExperimentC()
+        ContentExperimentC(isHard: isHard)
     }
 }
 
