@@ -57,21 +57,21 @@ struct ExperimentA: View {
     
     @State var correct:Int = 0
     
+    @EnvironmentObject var counterValue: CounterValue
     
     func check() {
         if state.currentNumber == task.correctNumber{
-            correct += 1
+            $counterValue.correctCount.wrappedValue += 1
             state.currentNumber = 0
             task = TaskState()
         }else{
+            $counterValue.incorrectCount.wrappedValue += 1
             state.currentNumber = 0
         }
     }
     
-    
     var body: some View {
         VStack{
-            Counter()
             
             Text(taskString)
                 .font(.largeTitle)

@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ExperimentC: View {
+
     var isHard: Bool
     
     var body: some View {
         VStack {
-            Counter()
             ContentExperimentC(isHard: isHard)
         }
     }

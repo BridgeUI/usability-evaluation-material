@@ -54,8 +54,7 @@ struct ExperimentNavButton<Destination>: View where Destination: View{
     
     var body: some View {
         NavigationLink(
-            destination:  DescriptionBeforeExperiment(text: text, content: destination).navigationBarTitle(title)
-                .navigationBarBackButtonHidden(true) ,
+            destination:  DescriptionBeforeExperiment(text: text, content: destination).navigationBarTitle(title) ,
             label: {
                 Text(title).padding().background(Color.blue).foregroundColor(.white).cornerRadius(8)
             })

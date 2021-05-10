@@ -17,6 +17,7 @@
 		BAA058DE262FEA4F0045A1CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA058DD262FEA4F0045A1CA /* ContentView.swift */; };
 		BAA058E0262FEA500045A1CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAA058DF262FEA500045A1CA /* Assets.xcassets */; };
 		BAA058E3262FEA500045A1CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAA058E2262FEA500045A1CA /* Preview Assets.xcassets */; };
+		BAA2832F2649609800688796 /* ExCScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA2832E2649609800688796 /* ExCScene.swift */; };
 		BADE63F02639945F00B6EF4B /* ContentExperimentC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE63EF2639945F00B6EF4B /* ContentExperimentC.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		BAA058DF262FEA500045A1CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAA058E2262FEA500045A1CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BAA058E4262FEA500045A1CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAA2832E2649609800688796 /* ExCScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExCScene.swift; sourceTree = "<group>"; };
 		BADE63EF2639945F00B6EF4B /* ContentExperimentC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentExperimentC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +96,7 @@
 			children = (
 				129620252634155500345AD2 /* ExperimentC.swift */,
 				BADE63EF2639945F00B6EF4B /* ContentExperimentC.swift */,
+				BAA2832E2649609800688796 /* ExCScene.swift */,
 			);
 			path = ExperimentC;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				BA4ECB0D264816E800F3113B /* DescriptionBeforeExperiment.swift in Sources */,
 				1296202A2634156300345AD2 /* ExperimentD.swift in Sources */,
 				BAA058DE262FEA4F0045A1CA /* ContentView.swift in Sources */,
+				BAA2832F2649609800688796 /* ExCScene.swift in Sources */,
 				BADE63F02639945F00B6EF4B /* ContentExperimentC.swift in Sources */,
 				1200D50D2642C0F10002A536 /* ExperimentB.swift in Sources */,
 				BA4ECB0F264823F400F3113B /* Counter.swift in Sources */,

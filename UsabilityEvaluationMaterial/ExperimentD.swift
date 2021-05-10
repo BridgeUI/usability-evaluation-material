@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ExperimentD: View {
+    
     var body: some View {
         VStack{
-            Counter()
             Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
         }
         
