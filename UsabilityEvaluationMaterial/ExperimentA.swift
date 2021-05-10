@@ -13,12 +13,15 @@ struct TaskState {
     var correctNumber:Double = 0
     var array:[Int] = [1,2,3,4,5,6,7,8,9]
     var correctarray = [] as [Int]
+    
     init() {
+        let randomArray = array.shuffled().prefix(6)
         for i in 0...5 {
-            let n = array.randomElement()
-            correctarray.append(n!)
-            taskNumber += Double(n!) * pow(10, Double(i))
+            let n = randomArray[i]
+            correctarray.append(n)
+            taskNumber += Double(n) * pow(10, Double(i))
         }
+        
         correctarray.sort{$0<$1}
         for i in 0...5 {
             let nc = correctarray[i]
