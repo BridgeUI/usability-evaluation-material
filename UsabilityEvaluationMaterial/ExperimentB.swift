@@ -11,18 +11,27 @@ struct ExperimentB: View {
     
     var isHard: Bool
     var body: some View {
-        VStack{
-            HStack{
+        HStack{
+            VStack{
+                Title(isHard: isHard, title: "1")
+                Item(isHard: isHard, name: "1")
+                Item(isHard: isHard, name: "1")
                 Item(isHard: isHard, name: "1")
                 Item(isHard: isHard, name: "1")
                 Item(isHard: isHard, name: "1")
             }
-            HStack{
+            VStack{
+                Title(isHard: isHard, title: "1")
+                Item(isHard: isHard, name: "1")
+                Item(isHard: isHard, name: "1")
                 Item(isHard: isHard, name: "1")
                 Item(isHard: isHard, name: "1")
                 Item(isHard: isHard, name: "1")
             }
-            HStack{
+            VStack{
+                Title(isHard: isHard, title: "1")
+                Item(isHard: isHard, name: "1")
+                Item(isHard: isHard, name: "1")
                 Item(isHard: isHard, name: "1")
                 Item(isHard: isHard, name: "1")
                 Item(isHard: isHard, name: "1")
@@ -31,6 +40,18 @@ struct ExperimentB: View {
     }
 }
 
+struct Title: View{
+    var isHard: Bool
+    var title:String
+    var titleName:String{
+        return title
+    }
+    var body: some View{
+        Text(title)
+            .font(.title)
+            .padding(.all,5)
+    }
+}
 struct Item: View {
     var isHard: Bool
     var name:String
@@ -47,7 +68,7 @@ struct Item: View {
         ) {
             Text(itemName)
                 .font(.body)
-                .padding(.all,10)
+                .padding(.all,5)
         }
     }
 }
