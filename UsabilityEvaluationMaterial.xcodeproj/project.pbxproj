@@ -11,6 +11,7 @@
 		1296201E263404FF00345AD2 /* ExperimentA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1296201D263404FF00345AD2 /* ExperimentA.swift */; };
 		129620262634155500345AD2 /* ExperimentC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129620252634155500345AD2 /* ExperimentC.swift */; };
 		1296202A2634156300345AD2 /* ExperimentD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129620292634156300345AD2 /* ExperimentD.swift */; };
+		12A0FA222674DBE500534062 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A0FA212674DBE500534062 /* test.swift */; };
 		BA4ECB0D264816E800F3113B /* DescriptionBeforeExperiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4ECB0C264816E800F3113B /* DescriptionBeforeExperiment.swift */; };
 		BA4ECB0F264823F400F3113B /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4ECB0E264823F400F3113B /* Counter.swift */; };
 		BAA058DC262FEA4F0045A1CA /* UsabilityEvaluationMaterialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA058DB262FEA4F0045A1CA /* UsabilityEvaluationMaterialApp.swift */; };
@@ -26,6 +27,7 @@
 		1296201D263404FF00345AD2 /* ExperimentA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentA.swift; sourceTree = "<group>"; };
 		129620252634155500345AD2 /* ExperimentC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentC.swift; sourceTree = "<group>"; };
 		129620292634156300345AD2 /* ExperimentD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentD.swift; sourceTree = "<group>"; };
+		12A0FA212674DBE500534062 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		BA4ECB0C264816E800F3113B /* DescriptionBeforeExperiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionBeforeExperiment.swift; sourceTree = "<group>"; };
 		BA4ECB0E264823F400F3113B /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 		BAA058D8262FEA4F0045A1CA /* UsabilityEvaluationMaterial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UsabilityEvaluationMaterial.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +76,7 @@
 				BA4ECB0E264823F400F3113B /* Counter.swift */,
 				1296201D263404FF00345AD2 /* ExperimentA.swift */,
 				1200D50C2642C0F10002A536 /* ExperimentB.swift */,
+				12A0FA212674DBE500534062 /* test.swift */,
 				BADE63F12639946600B6EF4B /* ExperimentC */,
 				129620292634156300345AD2 /* ExperimentD.swift */,
 				BAA058DF262FEA500045A1CA /* Assets.xcassets */,
@@ -180,6 +183,7 @@
 				BAA058DC262FEA4F0045A1CA /* UsabilityEvaluationMaterialApp.swift in Sources */,
 				1296201E263404FF00345AD2 /* ExperimentA.swift in Sources */,
 				129620262634155500345AD2 /* ExperimentC.swift in Sources */,
+				12A0FA222674DBE500534062 /* test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
