@@ -1,12 +1,11 @@
 //
-//  test.swift
+//  Test2.swift
 //  UsabilityEvaluationMaterial
 //
-//  Created by 村上聡 on 2021/06/12.
+//  Created by 村上聡 on 2021/06/14.
 //
 
 import SwiftUI
-
 
 struct Task {
     var dict = [
@@ -19,55 +18,56 @@ struct Task {
         "い":[]
     ]
     
-    var correctArray:[String]
-    
-    init(correctArray:[String]) {
-        let randomArray = dict.keys.shuffled().prefix(5)
-        for i in 0...4 {
-            let n = randomArray[i]
-            self.correctArray.append(n)
-        }
-    }
+    lazy var randomDict = dict.keys.shuffled().prefix(5)
+    lazy var taskTitle = randomDict.randomElement()
+    lazy var taskItem = dict[taskTitle!]?.randomElement()
 }
 
-struct test: View {
+
+struct Test2: View {
+    
     
     @State var task = Task()
-    @State var selection = 0
-    
-    var titleString = task.correctArray.randomElement()
-    var itemString = "い"
+    @State private var selection = 0
     
     var body: some View {
-        
         VStack {
+            
             HStack{
-                Text(titleString)
+                Text(task.taskTitle)
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding(.all)
-                Text(itemString)
+                Text(task.taskItem)
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding(.all)
             }
-            Picker(selection: $selection, label: Text("フルーツを選択")) {
-                ForEach(0 ..< task.correctArray.count) { num in
-                    Text(task.correctArray[num])
+            
+            Spacer()
+            Picker(selection: $selection, label: Text("")) {
+                ForEach(0 ..< task.randomDict.count) { num in
+                    Text(self.task.randomDict[num])
                 }
             }
             .pickerStyle(SegmentedPickerStyle())    // セグメントピッカースタイルの指定
             .frame(width: 350)
             
-            Text("選択値：\(task.correctArray[selection])")
+            Text(task.randomDict[selection]?[1])
+            Text(task.randomDict[selection]?[2])
+            Text(task.randomDict[selection]?[3])
+            Text(task.randomDict[selection]?[4])
+            Text(task.randomDict[selection]?[5])
+            Text(task.randomDict[selection]?[6])
         }
     }
+    
 }
 
 
-struct test_Previews: PreviewProvider {
+
+struct Test2_Previews: PreviewProvider {
     static var previews: some View {
-        test()
+        Test2()
     }
 }
-
