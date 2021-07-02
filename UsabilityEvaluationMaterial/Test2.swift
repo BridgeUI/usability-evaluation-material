@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Task {
-    var dict = [
+    let dict = [
         "食べ物":["ラーメン","オムライス","ステーキ","おにぎり","カレー"],
         "スポーツ":["テニス","野球","バレーボール","卓球","バスケットボール"],
         "乗り物":["新幹線","バス","タクシー","電車","自転車","飛行機"],
@@ -18,9 +18,16 @@ struct Task {
         "い":[]
     ]
     
-    lazy var randomDict = dict.keys.shuffled().prefix(5)
-    lazy var taskTitle = randomDict.randomElement()
-    lazy var taskItem = dict[taskTitle!]?.randomElement()
+    
+
+    init(){
+        let keys = [String](dict.keys)
+        let randomDict = keys.shuffled()
+        let randomNum = Int.random(in:0...5)
+        let taskTitle = randomDict[randomNum]
+        let taskItem = dict[taskTitle]?.randomElement()
+    }
+    //buildが終わらないのはlazyが原因?
 }
 
 
@@ -45,20 +52,20 @@ struct Test2: View {
             }
             
             Spacer()
-            Picker(selection: $selection, label: Text("")) {
-                ForEach(0 ..< task.randomDict.count) { num in
-                    Text(self.task.randomDict[num])
+            Picker(selection: $selection, label: Text("課題")) {
+                ForEach(0 ..< task.randomDict.count) { index in
+                    Text(self.task.randomDict[index])
                 }
             }
             .pickerStyle(SegmentedPickerStyle())    // セグメントピッカースタイルの指定
             .frame(width: 350)
             
+            Text(task.randomDict[selection]?[0])
             Text(task.randomDict[selection]?[1])
             Text(task.randomDict[selection]?[2])
             Text(task.randomDict[selection]?[3])
             Text(task.randomDict[selection]?[4])
             Text(task.randomDict[selection]?[5])
-            Text(task.randomDict[selection]?[6])
         }
     }
     
