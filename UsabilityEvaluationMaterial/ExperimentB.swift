@@ -1,139 +1,83 @@
 //
-//  ContentExperimentB.swift
+//  ExperimentB.swift
 //  UsabilityEvaluationMaterial
 //
-//  Created by 村上聡 on 2021/05/05.
+//  Created by 村上聡 on 2021/08/10.
 //
 
 import SwiftUI
 
-struct TaskStateB{
-    var dict = [
-        "食べ物":["ラーメン","オムライス","ステーキ","おにぎり","カレー"],
-        "スポーツ":["テニス","野球","バレーボール","卓球","バスケットボール"],
-        "乗り物":["新幹線","バス","タクシー","電車","自転車","飛行機"],
-        "職業":["学者","農家","公務員","医者","警察"],
-    ]
-    
-}
-
-
 struct ExperimentB: View {
-    var task = TaskStateB()
-    var isHard: Bool
     
-    var titleString = "あ"
-    var itemString = "い"
+    var isHard:Bool
+    @State private var selectiedDate = Date()
+    @State var monthIndex = 1
+    @State var dateIndex = 1
+    @State var yearIndex = 1
     
+    var month = ["Janually","Februally","March","April","May","June","July","August","September","October","November","December"]
+    var date = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"]
+    var year = [""]
     
     
     var body: some View {
+        
         VStack{
-            HStack{
-                Text(titleString)
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding(.all)
-                Text(itemString)
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding(.all)
-            }
-            
-            Spacer()
-            
-            HStack{
-                VStack{
-                    Title(isHard: isHard, title: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                }
-                VStack{
-                    Title(isHard: isHard, title: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                }
-                VStack{
-                    Title(isHard: isHard, title: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                }
-                VStack{
-                    Title(isHard: isHard, title: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                }
-                VStack{
-                    Title(isHard: isHard, title: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                    Item(isHard: isHard, name: "1")
-                }
-            }
-            
-            Spacer()
-            
-        }
-    }
-}
-
-
-
-struct Title: View{
-    var isHard: Bool
-    var title:String
-    var titleName:String{
-        return title
-    }
-    var body: some View{
-        Text(title)
-            .font(.largeTitle)
-            .padding(.all,5)
-    }
-}
-struct Item: View {
-    var isHard: Bool
-    var name:String
-    var itemName: String{
-        return name
-    }
-    var body: some View{
-        Button(action:
-                {
-                    if(name == "1"){
-                        
-                    }
-                }
-        ) {
-            Text(itemName)
+            Text("生年月日を入力してください")
                 .font(.title)
-                .padding(.all,5)
+                .bold()
+            
+            Spacer()
+            
+            if isHard==true{
+                DatePicker("生年月日を入力してください", selection: $selectiedDate,displayedComponents: .date)
+                    .datePickerStyle(WheelDatePickerStyle())
+                    .labelsHidden()
+            }else{
+                HStack{
+                    Picker(selection:$monthIndex,label:Text("month")){
+                        ForEach(0..<month.count){
+                            Text(self.month[$0])
+                        }
+                    }.frame(width:100)
+                    
+                    Picker(selection:$dateIndex,label:Text("date")){
+                        ForEach(0..<date.count){
+                            Text(self.date[$0])
+                        }
+                    }.frame(width:100)
+                    
+                    Picker(selection:$yearIndex,label:Text("year")){
+                        ForEach(0..<year.count){
+                            Text(self.year[$0])
+                        }
+                    }.frame(width:100)
+                }
+            }
+            
+            Spacer()
+            
+            Button(action: {
+                
+            }) {
+                Text("決定")
+                    .frame(maxWidth:.infinity)
+                    .frame(height:50)
+                    .font(.title)
+                    .foregroundColor(Color.white)
+                    .background(Color.blue)
+            }
+            .cornerRadius(10.0)
+            .padding(.all)
+            .shadow(radius: 3, x:3, y:3)
         }
     }
 }
 
 
-struct ContentExperimentB_Previews: PreviewProvider {
+
+struct ExperimentB_Previews: PreviewProvider {
     static var previews: some View {
-        ExperimentB(isHard: true)
+        ExperimentB(isHard:true)
     }
 }

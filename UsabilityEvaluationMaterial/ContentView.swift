@@ -26,7 +26,7 @@ struct ContentView: View {
                 ExperimentNavButton(label: "A", number: "1", text: descriptions[0], destination: ExperimentA(isHard: true))
                 ExperimentNavButton(label: "A", number: "2", text: descriptions[0], destination: ExperimentA(isHard: true))
                 ExperimentNavButton(label: "B", number: "1", text: descriptions[0], destination: ExperimentB(isHard: true))
-                ExperimentNavButton(label: "B", number: "2", text: descriptions[0], destination: ExperimentB(isHard: true))
+                ExperimentNavButton(label: "B", number: "2", text: descriptions[0], destination: ExperimentB(isHard: false))
                 ExperimentNavButton(label: "C", number: "1", text: descriptions[0], destination: ExperimentC(isHard: true))
                 ExperimentNavButton(label: "C", number: "2", text: descriptions[0], destination: ExperimentC(isHard: true))
                 ExperimentNavButton(label: "D", number: "1", text: descriptions[0], destination: ExperimentD())
