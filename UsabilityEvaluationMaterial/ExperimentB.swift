@@ -48,23 +48,25 @@ struct ExperimentB: View {
                         ForEach(0..<rc.month.count){
                             Text(rc.month[$0])
                         }
-                    }.frame(width:100)
-                    
-                    Spacer()
+                    }
+                    .frame(width:100)
+                    .clipped()
                     
                     Picker(selection:$dateIndex,label:Text("date")){
                         ForEach(0..<rc.date.count){
                             Text(rc.date[$0])
                         }
-                    }.frame(width:100)
-                    
-                    Spacer()
+                    }
+                    .frame(width:100)
+                    .clipped()
                     
                     Picker(selection:$yearIndex,label:Text("year")){
                         ForEach(0..<rc.year.count){
                             Text(rc.year[$0])
                         }
-                    }.frame(width:100)
+                    }
+                    .frame(width:100)
+                    .clipped()
                 }
             }
             
