@@ -7,6 +7,19 @@
 
 import SwiftUI
 
+struct RandomChoices {
+    var month = ["Janually","Februally","March","April","May","June","July","August","September","October","November","December"]
+    var date = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"]
+    var year = (1960...2010).map{"\($0)"}
+    
+    init() {
+        self.month = month.shuffled()
+        self.date = date.shuffled()
+    }
+    
+}
+
+
 struct ExperimentB: View {
     
     var isHard:Bool
@@ -14,11 +27,7 @@ struct ExperimentB: View {
     @State var monthIndex = 1
     @State var dateIndex = 1
     @State var yearIndex = 1
-    
-    var month = ["Janually","Februally","March","April","May","June","July","August","September","October","November","December"]
-    var date = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"]
-    var year = [""]
-    
+    var rc = RandomChoices()
     
     var body: some View {
         
@@ -36,20 +45,20 @@ struct ExperimentB: View {
             }else{
                 HStack{
                     Picker(selection:$monthIndex,label:Text("month")){
-                        ForEach(0..<month.count){
-                            Text(self.month[$0])
+                        ForEach(0..<rc.month.count){
+                            Text(rc.month[$0])
                         }
                     }.frame(width:100)
                     
                     Picker(selection:$dateIndex,label:Text("date")){
-                        ForEach(0..<date.count){
-                            Text(self.date[$0])
+                        ForEach(0..<rc.date.count){
+                            Text(rc.date[$0])
                         }
                     }.frame(width:100)
                     
                     Picker(selection:$yearIndex,label:Text("year")){
-                        ForEach(0..<year.count){
-                            Text(self.year[$0])
+                        ForEach(0..<rc.year.count){
+                            Text(rc.year[$0])
                         }
                     }.frame(width:100)
                 }
