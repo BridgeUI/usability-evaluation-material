@@ -26,7 +26,7 @@ struct ExperimentB: View {
     @State private var selectiedDate = Date()
     @State var monthIndex = 1
     @State var dateIndex = 1
-    @State var yearIndex = 1
+    @State var yearIndex = 20
     var rc = RandomChoices()
     
     var body: some View {
@@ -50,11 +50,15 @@ struct ExperimentB: View {
                         }
                     }.frame(width:100)
                     
+                    Spacer()
+                    
                     Picker(selection:$dateIndex,label:Text("date")){
                         ForEach(0..<rc.date.count){
                             Text(rc.date[$0])
                         }
                     }.frame(width:100)
+                    
+                    Spacer()
                     
                     Picker(selection:$yearIndex,label:Text("year")){
                         ForEach(0..<rc.year.count){
