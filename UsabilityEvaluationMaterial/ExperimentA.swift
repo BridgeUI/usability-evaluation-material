@@ -60,16 +60,21 @@ struct ExperimentA: View {
     
     @State var correct:Int = 0
     
+    @State var showingAlert = false
+    @State var isCheck:String = "正解"
+    
     
     func check() {
-        if state.currentNumber == task.correctNumber{
+        if state.currentNumber == task.taskNumber{
             //正解の時
-            state.currentNumber = 0
+            isCheck = "正解"
             task = TaskState()
         }else{
             //不正解の時
-            state.currentNumber = 0
+            isCheck = "不正解"
         }
+        state.currentNumber = 0
+        showingAlert = true
     }
     
     var body: some View {
@@ -134,6 +139,12 @@ struct ExperimentA: View {
             .cornerRadius(10.0)
             .padding(.all)
             .shadow(radius: 3, x:3, y:3)
+            .alert(isPresented: $showingAlert){
+                Alert(title:Text(isCheck),dismissButton: .default(Text("OK")))
+            
+                    
+            
+            }
         }
     }
     
@@ -159,13 +170,6 @@ struct NumberView: View {
         Button(action: {
             
             if (isHard) {
-                //                if (countTap == numberTap) {
-                //                    self.state.appendNumber(self.number)
-                //                    countTap = 0
-                //                    numberTap = Int.random(in: 1..<3)
-                //                }else{
-                //                    self.countTap += 1
-                //                }
                 if (1 == Int.random(in: 1..<3))  {
                     self.state.appendNumber(self.number)
                 }else{
@@ -186,8 +190,6 @@ struct NumberView: View {
                 .shadow(radius: 3, x:3, y:3)
                 .padding(.all,10)
         }
-        
-        
     }
 }
 
