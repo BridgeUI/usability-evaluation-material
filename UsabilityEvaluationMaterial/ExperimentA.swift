@@ -60,15 +60,14 @@ struct ExperimentA: View {
     
     @State var correct:Int = 0
     
-    @EnvironmentObject var counterValue: CounterValue
     
     func check() {
         if state.currentNumber == task.correctNumber{
-            $counterValue.correctCount.wrappedValue += 1
+            //正解の時
             state.currentNumber = 0
             task = TaskState()
         }else{
-            $counterValue.incorrectCount.wrappedValue += 1
+            //不正解の時
             state.currentNumber = 0
         }
     }

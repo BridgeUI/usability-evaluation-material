@@ -92,7 +92,7 @@ class ExCScene: SKScene {
             targetMarker.position = realPosition!
             
             //距離確認
-            let isInside = points.contains(where: { abs($0.x - x) <= 4 && abs($0.y - y) <= 4  })
+            let isInside = points.contains(where: { abs($0.x - x) <= (isHard ? 4 : 8) && abs($0.y - y) <= (isHard ? 4 : 8)  })
             targetMarker.fillColor = isInside ? UIColor(red: 63/255, green: 54/255, blue: 141/255, alpha: 1) : .red
             if !isInside {
                 targetMarker.position = startPoint

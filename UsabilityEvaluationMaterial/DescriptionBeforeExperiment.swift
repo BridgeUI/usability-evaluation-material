@@ -14,7 +14,6 @@ struct DescriptionBeforeExperiment<Content>: View where Content: View {
     let message2 = "実験は終了です．\nスタッフに知らせてください．"
     
     @State var isPresented = false
-    @State var counterValue = CounterValue()
     @State var isBackFromView = false
     
     var body: some View {
@@ -40,21 +39,11 @@ struct DescriptionBeforeExperiment<Content>: View where Content: View {
                     VStack {
                         Counter(isPresented: $isPresented)
                         content
-                    }.environmentObject(counterValue)
+                    }
                 })
             } else {
                 VStack {
-                    Text("スコア").font(.title.weight(.medium)).padding()
-                    HStack{
-                        Image(systemName: "checkmark").foregroundColor(.green).font(.title.weight(.bold))
-                        Spacer()
-                        Text("\(counterValue.correctCount)").font(.title.weight(.medium))
-                    }.frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 100, alignment: .center)
-                    HStack {
-                        Image(systemName: "xmark").foregroundColor(.red).font(.title.weight(.bold))
-                        Spacer()
-                        Text("\(counterValue.incorrectCount)").font(.title.weight(.medium))
-                    }.frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 100, alignment: .center)
+                    Text("終了").font(.title.weight(.medium)).padding()
                 }
             }
             Spacer()
