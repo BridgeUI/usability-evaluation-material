@@ -22,12 +22,17 @@ struct TaskState {
             taskNumber += Double(n) * pow(10, Double(i))
         }
         
-        correctarray.sort{$0<$1}
+        
+        //correctarrayを並び替えてcorrectNumberにぶち込む
+    }
+    
+    mutating func correctNum(correctarray:[Int], correctNumber:Double)->Double{
+        self.correctarray.sort{$0<$1}
         for i in 0...5 {
             let nc = correctarray[i]
-            correctNumber += Double(nc) * pow(10, Double(i))
+            self.self.correctNumber += Double(nc) * pow(10, Double(i))
         }
-        //correctarrayを並び替えてcorrectNumberにぶち込む
+        return correctNumber
     }
 }
 
@@ -65,7 +70,7 @@ struct ExperimentA: View {
     
     
     func check() {
-        if state.currentNumber == task.taskNumber{
+        if state.currentNumber == task.correctNum(correctarray: task.correctarray, correctNumber: task.correctNumber){
             //正解の時
             isCheck = "正解"
             task = TaskState()
