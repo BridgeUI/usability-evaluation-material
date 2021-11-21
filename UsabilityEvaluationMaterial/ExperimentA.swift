@@ -9,30 +9,23 @@ import SwiftUI
 import UIKit
 
 struct TaskState {
+    var array:[Int] = [1,2,3,4,5,6,7,8,9]
     var taskNumber:Double = 0
     var correctNumber:Double = 0
-    var array:[Int] = [1,2,3,4,5,6,7,8,9]
-    var correctarray = [] as [Int]
     
     init() {
+        
         let randomArray = array.shuffled().prefix(6)
         for i in 0...5 {
             let n = randomArray[i]
-            correctarray.append(n)
             taskNumber += Double(n) * pow(10, Double(i))
         }
         
-        
-        //correctarrayを並び替えてcorrectNumberにぶち込む
-    }
-    
-    mutating func correctNum(correctarray:[Int], correctNumber:Double)->Double{
-        self.correctarray.sort{$0<$1}
+        let correctArray = randomArray.sorted{$0<$1}
         for i in 0...5 {
-            let nc = correctarray[i]
-            self.self.correctNumber += Double(nc) * pow(10, Double(i))
+            let nc = correctArray[i]
+            correctNumber += Double(nc) * pow(10, Double(i))
         }
-        return correctNumber
     }
 }
 
@@ -63,20 +56,19 @@ struct ExperimentA: View {
         return String(format: "%.0f", arguments: [task.taskNumber])
     }
     
-    @State var correct:Int = 0
-    
     @State var showingAlert = false
     @State var isCheck:String = "正解"
     
     
     func check() {
-        if state.currentNumber == task.correctNum(correctarray: task.correctarray, correctNumber: task.correctNumber){
+        if state.currentNumber == task.correctNumber{
             //正解の時
-            isCheck = "正解"
+            self.isCheck = "正解"
             task = TaskState()
         }else{
             //不正解の時
-            isCheck = "不正解"
+            self.isCheck = "不正解"
+            task = TaskState()
         }
         state.currentNumber = 0
         showingAlert = true
@@ -197,8 +189,6 @@ struct NumberView: View {
         }
     }
 }
-
-
 
 struct ContentExperimentA_Previews: PreviewProvider {
     static var previews: some View {

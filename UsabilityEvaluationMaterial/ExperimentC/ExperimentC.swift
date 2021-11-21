@@ -14,7 +14,7 @@ struct ExperimentC: View {
     
     var body: some View {
         VStack {
-            ContentExperimentC(isHard: isHard, showAlert: showAlert)
+            ContentExperimentC(isHard: isHard, showAlert: $showAlert)
         }.alert(isPresented: $showAlert) {
             Alert(title: Text("GOAL"), message: Text("ゴールに到達しました"), dismissButton: .default(Text("続ける")))
         }
@@ -25,6 +25,6 @@ struct ExperimentC: View {
 
 struct ExperimentC_Previews: PreviewProvider {
     static var previews: some View {
-        ExperimentC(isHard: true, showAlert: true)
+        ExperimentC(isHard: true)
     }
 }
