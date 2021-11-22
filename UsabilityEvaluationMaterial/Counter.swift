@@ -10,10 +10,9 @@ import Combine
 
 struct Counter: View {
     
-    @State var count = 1000
+    @State var count = 18000
     @Binding var isPresented: Bool
     
-    @EnvironmentObject var counterValue: CounterValue
     
     var timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     
@@ -26,25 +25,14 @@ struct Counter: View {
                 isPresented = count > 0
             }
             Spacer()
-            Image(systemName: "checkmark").foregroundColor(.green).font(.title.weight(.bold))
-            Text("\(counterValue.correctCount)").font(.title.weight(.medium))
-            Spacer()
-            Image(systemName: "xmark").foregroundColor(.red).font(.title.weight(.bold))
-            Text("\(counterValue.incorrectCount)").font(.title.weight(.medium))
-            Spacer()
         }.padding(24)
     }
-}
-
-class CounterValue: ObservableObject {
-    @Published var correctCount = 0
-    @Published var incorrectCount = 0
 }
 
 struct Counter_Previews: PreviewProvider {
     @State static var isPresented = true
     
     static var previews: some View {
-        Counter(isPresented: $isPresented).environmentObject(CounterValue())
+        Counter(isPresented: $isPresented)
     }
 }

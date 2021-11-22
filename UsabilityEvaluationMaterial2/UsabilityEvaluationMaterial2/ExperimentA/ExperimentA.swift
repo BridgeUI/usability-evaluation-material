@@ -9,37 +9,28 @@ import SwiftUI
 import UIKit
 
 struct TaskState {
-    var array:[Int] = [1,2,3,4,5,6,7,8,9]
-    var taskNumber:Double = 0
-    var correctNumber:Double = 0
+    var array:[String] = ["1","2","3","4","5","6","7","8","9"]
+    var taskNumber:String=""
+    var correctNumber:String=""
     
     init() {
-        
         let randomArray = array.shuffled().prefix(6)
         for i in 0...5 {
-            let n = randomArray[i]
-            taskNumber += Double(n) * pow(10, Double(i))
+            taskNumber += randomArray[i]
         }
         
         let correctArray = randomArray.sorted{$0<$1}
         for i in 0...5 {
-            let nc = correctArray[i]
-            correctNumber += Double(nc) * pow(10, Double(i))
+            correctNumber += correctArray[i]
         }
     }
 }
 
 struct InputState {
     
-    var currentNumber: Double = 0
-    mutating func  appendNumber(_ number: Double) {
-        if number.truncatingRemainder(dividingBy: 1) == 0
-            &&
-            currentNumber.truncatingRemainder(dividingBy: 1)==0{
-            currentNumber = 10 * currentNumber + number
-        }else{
-            currentNumber = number
-        }
+    var currentNumber: String = ""
+    mutating func  appendNumber(_ number: Int) {
+            currentNumber +=  String(number)
     }
 }
 
@@ -47,21 +38,13 @@ struct ExperimentA: View {
     var isHard: Bool
     
     @State var state = InputState()
-    var displayedString: String{
-        return String(format: "%.0f", arguments:[state.currentNumber])
-    }
-    
     @State var task = TaskState()
-    var taskString:String {
-        return String(format: "%.0f", arguments: [task.taskNumber])
-    }
     
     @State var showingAlert = false
     @State var isCheck:String = "正解"
     
-    
     func check() {
-        if state.currentNumber == task.correctNumber{
+        if String(state.currentNumber) == task.correctNumber{
             //正解の時
             self.isCheck = "正解"
             task = TaskState()
@@ -70,19 +53,19 @@ struct ExperimentA: View {
             self.isCheck = "不正解"
             task = TaskState()
         }
-        state.currentNumber = 0
+        state.currentNumber = ""
         showingAlert = true
     }
     
     var body: some View {
         VStack{
             
-            Text(taskString)
+            Text(task.taskNumber)
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding(.top)
             
-            Text(displayedString)
+            Text(state.currentNumber)
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding(.all)
@@ -110,7 +93,7 @@ struct ExperimentA: View {
             }
             
             Button(action: {
-                state.currentNumber = 0
+                state.currentNumber = ""
             }) {
                 Text("クリア")
                     .frame(maxWidth:.infinity)
@@ -149,7 +132,7 @@ struct ExperimentA: View {
 
 
 struct NumberView: View {
-    let number:Double
+    let number:Int
     @Binding var state: InputState
     
     //    @State var numberTap = Int.random(in: 1..<3)

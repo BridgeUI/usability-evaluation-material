@@ -6,7 +6,6 @@
 //
 
 import SpriteKit
-import SwiftUI
 
 class ExCScene: SKScene {
     
@@ -17,12 +16,12 @@ class ExCScene: SKScene {
     private var nextDice: Int = 0
     private var shouldMmove = true
     private let isHard: Bool
-    @Binding var showAlert: Bool
     private let startPoint: CGPoint
+    private let showAlert: () -> Void
     
     private var points = [CGPoint]()
     
-    init(size: CGSize, isHard: Bool, showAlert: Bool) {
+    init(size: CGSize, isHard: Bool, showAlert: @escaping () -> Void) {
         self.isHard = isHard
         self.showAlert = showAlert
         
@@ -97,9 +96,11 @@ class ExCScene: SKScene {
             //距離確認
             let isInside = points.contains(where: { abs($0.x - x) <= (isHard ? 4 : 8) && abs($0.y - y) <= (isHard ? 4 : 8)  })
             targetMarker.fillColor = isInside ? UIColor(red: 63/255, green: 54/255, blue: 141/255, alpha: 1) : .red
-            if let last = points.last, abs(last.x - x) <= 10 && abs(last.y - y) <= 10 {
+            if let last = points.first, abs(last.x - x) <= 10 && abs(last.y - y) <= 10 {
                 //到達
-                showAlert = true
+                self.showAlert()
+                targetMarker.position = startPoint
+                
             }
             if !isInside {
                 targetMarker.position = startPoint
